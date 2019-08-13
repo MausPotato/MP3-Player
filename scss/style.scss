@@ -14,10 +14,8 @@ $font-ss:2vh;/*16px*/
   margin: 0 auto;
   overflow: hidden;
   display: grid;
-  grid-template-areas: "aside playertop"
-                       "aside playermenu"
-                       "aside playerbar";
-  grid-template-rows: 42% 48.6% 9.4%; 
+  grid-template-areas: "aside playerinfo";
+  grid-template-rows: 100%; 
   grid-template-columns: 17.8% 82.2%;
 }
 
@@ -29,7 +27,7 @@ $font-ss:2vh;/*16px*/
   grid-template-areas: "addalbum"
                        "albumlist"
                        "albumcover";
-  grid-template-rows: 9.1% auto 26.6%;
+  grid-template-rows: 9.1% 64.3% 26.6%;
   .addalbum {
     grid-area: addalbum;
     background: #161616;
@@ -45,8 +43,7 @@ $font-ss:2vh;/*16px*/
   .albumlist {
     grid-area: albumlist;
     color: #868686;
-    overflow-x: hidden;
-    overflow-y: scroll;
+    overflow: auto;
     &::-webkit-scrollbar {
       display: none;
     }
@@ -84,31 +81,83 @@ $font-ss:2vh;/*16px*/
       font-size: $font-m;
     }
   }
-
 }
 
-.playertop {
-  grid-area: playertop;
-  background-image: url(https://i.ytimg.com/vi/gUeARiwv9lU/maxresdefault.jpg);
-  background-position: top center;
-  background-size: 80%;
+.playerinfo {
+  grid-area: playerinfo;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  .albumdetail {
-    .albumpic img {
-      height: 23vh;
+  justify-content: space-between;
+  .albumpic {
+    height: 42vh;
+    background-image: url(https://i.ytimg.com/vi/gUeARiwv9lU/maxresdefault.jpg);
+    background-position: top center;
+    background-size: 100%;
+    padding: 1% 1% 0 1%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .searchnlogin {
+      display: flex;
+      justify-content: space-between;
     }
-
+    .albumdetail {
+      display: flex;
+      justify-content: space-around;
+      .albumcover img {
+        height: 23vh;
+      }
+      .albumtitle {
+        color: #fff;
+        width: 60vh;
+        h1 {
+          font-size: $font-l;
+          font-weight: bold;
+          margin-bottom: 3.8%;
+        }
+        p {
+          line-height: 3vh;
+        }
+      }
+      .albumbutton {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        .addtomyalbum {
+          color: #fff;
+          font-family: 'Roboto', sans-serif, 'Noto Sans TC', sans-serif;
+          font-size: $font-ss;
+          width: 171px;
+          height: 5.4vh;
+          background: rgba(0,0,0,0.60);
+          border-radius: 23.5px;
+          border: none;
+        }
+        .playmusic {
+          width: 10vh;
+          height: 10vh;
+          background-image: linear-gradient(227deg, #FFA883 0%, #3927FF 100%);
+          box-shadow: 0 2px 8px 0 rgba(0,0,0,0.50);
+          border: none;
+          border-radius: 50%;
+          padding: 0;
+        }
+        i {
+          color: #fff;
+          font-size: $font-m;
+          text-align: right;
+          vertical-align: middle;
+        }
+      }
+    }
   }
 }
 
-.playermenu {
-  grid-area: playermenu;
+.tunemenu {
   background-color: #2A2A2A;;
 }
 
 .playerbar {
-  grid-area: playerbar;
   background-color: #1D1D1D;;
 }

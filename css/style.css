@@ -56,15 +56,14 @@ table {
   overflow: hidden;
   display: -ms-grid;
   display: grid;
-  grid-template-areas: "aside playertop" "aside playermenu" "aside playerbar";
-  -ms-grid-rows: 42% 48.6% 9.4%;
-  grid-template-rows: 42% 48.6% 9.4%;
+  grid-template-areas: "aside playerinfo";
+  -ms-grid-rows: 100%;
+  grid-template-rows: 100%;
   -ms-grid-columns: 17.8% 82.2%;
   grid-template-columns: 17.8% 82.2%; }
 
 .aside {
   -ms-grid-row: 1;
-  -ms-grid-row-span: 3;
   -ms-grid-column: 1;
   grid-area: aside;
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(23%, #222222), to(#0C0C0C));
@@ -76,8 +75,8 @@ table {
   display: -ms-grid;
   display: grid;
   grid-template-areas: "addalbum" "albumlist" "albumcover";
-  -ms-grid-rows: 9.1% auto 26.6%;
-  grid-template-rows: 9.1% auto 26.6%; }
+  -ms-grid-rows: 9.1% 64.3% 26.6%;
+  grid-template-rows: 9.1% 64.3% 26.6%; }
   .aside .addalbum {
     -ms-grid-row: 1;
     -ms-grid-column: 1;
@@ -101,8 +100,7 @@ table {
     -ms-grid-column: 1;
     grid-area: albumlist;
     color: #868686;
-    overflow-x: hidden;
-    overflow-y: scroll;
+    overflow: auto;
     -ms-overflow-style: none;
     scrollbar-width: none; }
     .aside .albumlist::-webkit-scrollbar {
@@ -150,13 +148,10 @@ table {
     .aside .albumcover h2 {
       font-size: 3.3vh; }
 
-.playertop {
+.playerinfo {
   -ms-grid-row: 1;
   -ms-grid-column: 2;
-  grid-area: playertop;
-  background-image: url(https://i.ytimg.com/vi/gUeARiwv9lU/maxresdefault.jpg);
-  background-position: top center;
-  background-size: 80%;
+  grid-area: playerinfo;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -164,19 +159,91 @@ table {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  -ms-flex-pack: distribute;
-  justify-content: space-around; }
-  .playertop .albumdetail .albumpic img {
-    height: 23vh; }
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between; }
+  .playerinfo .albumpic {
+    height: 42vh;
+    background-image: url(https://i.ytimg.com/vi/gUeARiwv9lU/maxresdefault.jpg);
+    background-position: top center;
+    background-size: 100%;
+    padding: 1% 1% 0 1%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between; }
+    .playerinfo .albumpic .searchnlogin {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between; }
+    .playerinfo .albumpic .albumdetail {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-pack: distribute;
+      justify-content: space-around; }
+      .playerinfo .albumpic .albumdetail .albumcover img {
+        height: 23vh; }
+      .playerinfo .albumpic .albumdetail .albumtitle {
+        color: #fff;
+        width: 60vh; }
+        .playerinfo .albumpic .albumdetail .albumtitle h1 {
+          font-size: 5vh;
+          font-weight: bold;
+          margin-bottom: 3.8%; }
+        .playerinfo .albumpic .albumdetail .albumtitle p {
+          line-height: 3vh; }
+      .playerinfo .albumpic .albumdetail .albumbutton {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center; }
+        .playerinfo .albumpic .albumdetail .albumbutton .addtomyalbum {
+          color: #fff;
+          font-family: 'Roboto', sans-serif, 'Noto Sans TC', sans-serif;
+          font-size: 2vh;
+          width: 171px;
+          height: 5.4vh;
+          background: rgba(0, 0, 0, 0.6);
+          border-radius: 23.5px;
+          border: none; }
+        .playerinfo .albumpic .albumdetail .albumbutton .playmusic {
+          width: 10vh;
+          height: 10vh;
+          background-image: -webkit-linear-gradient(223deg, #FFA883 0%, #3927FF 100%);
+          background-image: -o-linear-gradient(223deg, #FFA883 0%, #3927FF 100%);
+          background-image: linear-gradient(227deg, #FFA883 0%, #3927FF 100%);
+          -webkit-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.5);
+          box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.5);
+          border: none;
+          border-radius: 50%;
+          padding: 0; }
+        .playerinfo .albumpic .albumdetail .albumbutton i {
+          color: #fff;
+          font-size: 3.3vh;
+          text-align: right;
+          vertical-align: middle; }
 
-.playermenu {
-  -ms-grid-row: 2;
-  -ms-grid-column: 2;
-  grid-area: playermenu;
+.tunemenu {
   background-color: #2A2A2A; }
 
 .playerbar {
-  -ms-grid-row: 3;
-  -ms-grid-column: 2;
-  grid-area: playerbar;
   background-color: #1D1D1D; }
