@@ -85,79 +85,80 @@ $font-ss:2vh;/*16px*/
 
 .playerinfo {
   grid-area: playerinfo;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  .albumpic {
-    height: 42vh;
-    background-image: url(https://i.ytimg.com/vi/gUeARiwv9lU/maxresdefault.jpg);
-    background-position: top center;
-    background-size: 100%;
-    padding: 1% 1% 0 1%;
+  display: grid;
+  grid-template-areas: ". . ."
+                       "searchnlogin searchnlogin searchnlogin"
+                       ". . ."
+                       ". albumdetail ."
+                       ". . ."
+                       ". tunemenu ."
+                       "playerbar playerbar playerbar";
+  grid-template-rows: 4fr 4.3% 35fr 23% 11fr 38.3% 9.4%;
+  grid-template-columns: 1fr 88.4% 1fr;
+  .searchnlogin {
+    grid-area: searchnlogin;
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
-    .searchnlogin {
-      display: flex;
-      justify-content: space-between;
+  }
+  .albumdetail {
+    grid-area: albumdetail;
+    display: flex;
+    justify-content: space-around;
+    .albumcover img {
+      height: 23vh;
     }
-    .albumdetail {
+    .albumtitle {
+      color: #fff;
+      width: 60vh;
+      h1 {
+        font-size: $font-l;
+        font-weight: bold;
+        margin-bottom: 3.8%;
+      }
+      p {
+        line-height: 3vh;
+      }
+    }
+    .albumbutton {
       display: flex;
-      justify-content: space-around;
-      .albumcover img {
-        height: 23vh;
-      }
-      .albumtitle {
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      .addtomyalbum {
         color: #fff;
-        width: 60vh;
-        h1 {
-          font-size: $font-l;
-          font-weight: bold;
-          margin-bottom: 3.8%;
-        }
-        p {
-          line-height: 3vh;
-        }
+        font-family: 'Roboto', sans-serif, 'Noto Sans TC', sans-serif;
+        font-size: $font-ss;
+        width: 171px;
+        height: 5.4vh;
+        background: rgba(0,0,0,0.60);
+        border-radius: 23.5px;
+        border: none;
       }
-      .albumbutton {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        .addtomyalbum {
-          color: #fff;
-          font-family: 'Roboto', sans-serif, 'Noto Sans TC', sans-serif;
-          font-size: $font-ss;
-          width: 171px;
-          height: 5.4vh;
-          background: rgba(0,0,0,0.60);
-          border-radius: 23.5px;
-          border: none;
-        }
-        .playmusic {
-          width: 10vh;
-          height: 10vh;
-          background-image: linear-gradient(227deg, #FFA883 0%, #3927FF 100%);
-          box-shadow: 0 2px 8px 0 rgba(0,0,0,0.50);
-          border: none;
-          border-radius: 50%;
-          padding: 0;
-        }
-        i {
-          color: #fff;
-          font-size: $font-m;
-          text-align: right;
-          vertical-align: middle;
-        }
+      .playmusic {
+        width: 10vh;
+        height: 10vh;
+        background-image: linear-gradient(227deg, #FFA883 0%, #3927FF 100%);
+        box-shadow: 0 2px 8px 0 rgba(0,0,0,0.50);
+        border: none;
+        border-radius: 50%;
+        padding: 0;
+      }
+      i {
+        color: #fff;
+        font-size: $font-m;
+        text-align: right;
+        vertical-align: middle;
       }
     }
   }
-}
-
-.tunemenu {
+  .tunemenu {
+    grid-area: tunemenu;
   background-color: #2A2A2A;;
+  }
+
+  .playerbar {
+    grid-area: playerbar;
+    background-color: #1D1D1D;;
+  }
 }
 
-.playerbar {
-  background-color: #1D1D1D;;
-}

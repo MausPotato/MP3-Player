@@ -152,98 +152,91 @@ table {
   -ms-grid-row: 1;
   -ms-grid-column: 2;
   grid-area: playerinfo;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between; }
-  .playerinfo .albumpic {
-    height: 42vh;
-    background-image: url(https://i.ytimg.com/vi/gUeARiwv9lU/maxresdefault.jpg);
-    background-position: top center;
-    background-size: 100%;
-    padding: 1% 1% 0 1%;
+  display: -ms-grid;
+  display: grid;
+  grid-template-areas: ". . ." "searchnlogin searchnlogin searchnlogin" ". . ." ". albumdetail ." ". . ." ". tunemenu ." "playerbar playerbar playerbar";
+  -ms-grid-rows: 4fr 4.3% 35fr 23% 11fr 38.3% 9.4%;
+  grid-template-rows: 4fr 4.3% 35fr 23% 11fr 38.3% 9.4%;
+  -ms-grid-columns: 1fr 88.4% 1fr;
+  grid-template-columns: 1fr 88.4% 1fr; }
+  .playerinfo .searchnlogin {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+    grid-area: searchnlogin;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between; }
-    .playerinfo .albumpic .searchnlogin {
+  .playerinfo .albumdetail {
+    -ms-grid-row: 4;
+    -ms-grid-column: 2;
+    grid-area: albumdetail;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-around; }
+    .playerinfo .albumdetail .albumcover img {
+      height: 23vh; }
+    .playerinfo .albumdetail .albumtitle {
+      color: #fff;
+      width: 60vh; }
+      .playerinfo .albumdetail .albumtitle h1 {
+        font-size: 5vh;
+        font-weight: bold;
+        margin-bottom: 3.8%; }
+      .playerinfo .albumdetail .albumtitle p {
+        line-height: 3vh; }
+    .playerinfo .albumdetail .albumbutton {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
       -webkit-box-pack: justify;
       -ms-flex-pack: justify;
-      justify-content: space-between; }
-    .playerinfo .albumpic .albumdetail {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-pack: distribute;
-      justify-content: space-around; }
-      .playerinfo .albumpic .albumdetail .albumcover img {
-        height: 23vh; }
-      .playerinfo .albumpic .albumdetail .albumtitle {
+      justify-content: space-between;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center; }
+      .playerinfo .albumdetail .albumbutton .addtomyalbum {
         color: #fff;
-        width: 60vh; }
-        .playerinfo .albumpic .albumdetail .albumtitle h1 {
-          font-size: 5vh;
-          font-weight: bold;
-          margin-bottom: 3.8%; }
-        .playerinfo .albumpic .albumdetail .albumtitle p {
-          line-height: 3vh; }
-      .playerinfo .albumpic .albumdetail .albumbutton {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-        flex-direction: column;
-        -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-        justify-content: space-between;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center; }
-        .playerinfo .albumpic .albumdetail .albumbutton .addtomyalbum {
-          color: #fff;
-          font-family: 'Roboto', sans-serif, 'Noto Sans TC', sans-serif;
-          font-size: 2vh;
-          width: 171px;
-          height: 5.4vh;
-          background: rgba(0, 0, 0, 0.6);
-          border-radius: 23.5px;
-          border: none; }
-        .playerinfo .albumpic .albumdetail .albumbutton .playmusic {
-          width: 10vh;
-          height: 10vh;
-          background-image: -webkit-linear-gradient(223deg, #FFA883 0%, #3927FF 100%);
-          background-image: -o-linear-gradient(223deg, #FFA883 0%, #3927FF 100%);
-          background-image: linear-gradient(227deg, #FFA883 0%, #3927FF 100%);
-          -webkit-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.5);
-          box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.5);
-          border: none;
-          border-radius: 50%;
-          padding: 0; }
-        .playerinfo .albumpic .albumdetail .albumbutton i {
-          color: #fff;
-          font-size: 3.3vh;
-          text-align: right;
-          vertical-align: middle; }
-
-.tunemenu {
-  background-color: #2A2A2A; }
-
-.playerbar {
-  background-color: #1D1D1D; }
+        font-family: 'Roboto', sans-serif, 'Noto Sans TC', sans-serif;
+        font-size: 2vh;
+        width: 171px;
+        height: 5.4vh;
+        background: rgba(0, 0, 0, 0.6);
+        border-radius: 23.5px;
+        border: none; }
+      .playerinfo .albumdetail .albumbutton .playmusic {
+        width: 10vh;
+        height: 10vh;
+        background-image: -webkit-linear-gradient(223deg, #FFA883 0%, #3927FF 100%);
+        background-image: -o-linear-gradient(223deg, #FFA883 0%, #3927FF 100%);
+        background-image: linear-gradient(227deg, #FFA883 0%, #3927FF 100%);
+        -webkit-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.5);
+        box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.5);
+        border: none;
+        border-radius: 50%;
+        padding: 0; }
+      .playerinfo .albumdetail .albumbutton i {
+        color: #fff;
+        font-size: 3.3vh;
+        text-align: right;
+        vertical-align: middle; }
+  .playerinfo .tunemenu {
+    -ms-grid-row: 6;
+    -ms-grid-column: 2;
+    grid-area: tunemenu;
+    background-color: #2A2A2A; }
+  .playerinfo .playerbar {
+    -ms-grid-row: 7;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+    grid-area: playerbar;
+    background-color: #1D1D1D; }
