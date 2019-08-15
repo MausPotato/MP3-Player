@@ -47,7 +47,11 @@
     </div>
     <div class="playerinfo">
       <div class="searchnlogin">
-        <button id="search"><img src="img/search.svg"></button>
+        <form id="search">
+          <input type="text" name="text" placeholder="請輸入關鍵字">
+          <button><i class="fas fa-search"></i></button>
+        </form>
+        <button id="magnifier"><i class="fas fa-search"></i></button>
         <button id="login">LOG IN</button>
       </div>
       <div class="albumdetail">
@@ -75,12 +79,18 @@
         </ul>
       </div>
       <div class="playerbar">
-        <button id="random" class="btn"><img src="img/random.svg"></button>
-        <button id="last" class="btn"><img src="img/step-backward-solid.svg"></button>
-        <button id="play" class="btn"><img src="img/play-circle-regular.svg"></button>
-        <button id="next" class="btn"><img src="img/step-forward-solid.svg"></button>
-        <button id="repeat" class="btn"><img src="img/repeat.svg"></button>
+        <div class="tunebar">
+          <input type="range" name="" min="" max="" step="" value="0">
+        </div>
+        <div class="barbutton">
+          <button id="random" class="btn">random</button>
+          <button id="last" class="btn">step-backward</button>
+          <button id="play" class="btn">play</button>
+          <button id="next" class="btn">step-forward</button>
+          <button id="repeat" class="btn">repeat</button>
+        </div>
         <div class="volume">
+          <button id="volume" class="btn">volume</button>
           <input type="range" name="" min="0" max="100" step="1" value="50">
         </div>
       </div>
