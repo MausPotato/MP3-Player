@@ -148,11 +148,17 @@ table {
   color: #FFF;
   padding: 0 3vh; }
   .currentinfo h3 {
-    padding-bottom: .5vh; }
+    padding-bottom: .5vh;
+    -webkit-filter: drop-shadow(0.3vh 0.3vh 0.2vh black);
+    filter: drop-shadow(0.3vh 0.3vh 0.2vh black); }
   .currentinfo p {
-    color: #959595; }
+    color: #959595;
+    -webkit-filter: drop-shadow(0.3vh 0.3vh 0.2vh black);
+    filter: drop-shadow(0.3vh 0.3vh 0.2vh black); }
   .currentinfo h2 {
-    font-size: 3.3vh; }
+    font-size: 3.3vh;
+    -webkit-filter: drop-shadow(0.3vh 0.3vh 0.2vh black);
+    filter: drop-shadow(0.3vh 0.3vh 0.2vh black); }
 
 .playerinfo {
   -ms-grid-row: 1;
@@ -164,7 +170,11 @@ table {
   -ms-grid-rows: 4fr 4.3% 35fr 23% 11fr 38.3% 9.4%;
   grid-template-rows: 4fr 4.3% 35fr 23% 11fr 38.3% 9.4%;
   -ms-grid-columns: 1fr 88.4% 1fr;
-  grid-template-columns: 1fr 88.4% 1fr; }
+  grid-template-columns: 1fr 88.4% 1fr;
+  background-image: url(https://i.ytimg.com/vi/gUeARiwv9lU/maxresdefault.jpg);
+  background-position: top center;
+  background-size: 74.5vh;
+  background-repeat: repeat-x; }
 
 .searchnlogin {
   -ms-grid-row: 2;
@@ -270,9 +280,13 @@ table {
     .albumdetail .albumtitle h1 {
       font-size: 5vh;
       font-weight: bold;
-      margin-bottom: 3.8%; }
+      margin-bottom: 3.8%;
+      -webkit-filter: drop-shadow(0.3vh 0.3vh 0.3vh black);
+      filter: drop-shadow(0.3vh 0.3vh 0.3vh black); }
     .albumdetail .albumtitle p {
-      line-height: 3vh; }
+      line-height: 3vh;
+      -webkit-filter: drop-shadow(0.3vh 0.3vh 0.2vh black);
+      filter: drop-shadow(0.3vh 0.3vh 0.2vh black); }
   .albumdetail .albumbutton {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -324,8 +338,6 @@ table {
         vertical-align: middle; }
       .albumdetail .albumbutton .playmusic:hover {
         cursor: pointer;
-        -webkit-box-shadow: .2vh .2vh .2vh #6241E6;
-        box-shadow: .2vh .2vh .2vh #6241E6;
         background: -webkit-linear-gradient(223deg, #3927FF 0%, #FFA883 100%);
         background: -o-linear-gradient(223deg, #3927FF 0%, #FFA883 100%);
         background: linear-gradient(227deg, #3927FF 0%, #FFA883 100%);
@@ -378,7 +390,7 @@ table {
       width: 80vh;
       text-align: center; }
     .tunemenu table .time {
-      width: 15vh;
+      width: 10vh;
       text-align: center; }
     .tunemenu table .pnm {
       width: 15vh;
@@ -453,7 +465,8 @@ table {
         border-radius: 50%;
         -webkit-transition: .2s;
         -o-transition: .2s;
-        transition: .2s; }
+        transition: .2s;
+        z-index: 30; }
 
 .btn {
   -webkit-mask-repeat: no-repeat;
