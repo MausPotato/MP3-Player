@@ -99,6 +99,8 @@ table {
   padding: 0 3vh; }
   .addalbum h3 {
     display: inline-block; }
+  .addalbum:hover {
+    cursor: pointer; }
 
 .albumlist {
   -ms-grid-row: 2;
@@ -128,7 +130,8 @@ table {
       background-image: -webkit-linear-gradient(right, #FFA883 0%, #3927FF 100%);
       background-image: -o-linear-gradient(right, #FFA883 0%, #3927FF 100%);
       background-image: linear-gradient(270deg, #FFA883 0%, #3927FF 100%);
-      color: #FFF; }
+      color: #FFF;
+      cursor: pointer; }
 
 .currentinfo {
   -ms-grid-row: 3;
@@ -199,7 +202,7 @@ table {
     -ms-flex-align: center;
     align-items: center;
     padding: 0 1%;
-    background-color: #2A2A2A;
+    background-color: rgba(0, 0, 0, 0);
     -webkit-transition: background-color .2s .8s;
     -o-transition: background-color .2s .8s;
     transition: background-color .2s .8s; }
@@ -227,7 +230,9 @@ table {
       height: 2.5vh;
       -webkit-transition: background-color .2s .8s;
       -o-transition: background-color .2s .8s;
-      transition: background-color .2s .8s; }
+      transition: background-color .2s .8s;
+      -webkit-filter: drop-shadow(0.3vh 0.3vh 0.2vh black);
+      filter: drop-shadow(0.3vh 0.3vh 0.2vh black); }
     .searchnlogin #search:hover, .searchnlogin #search:active {
       background-color: #fff;
       -webkit-transition: background-color;
@@ -251,11 +256,11 @@ table {
     width: 15vh;
     background: rgba(0, 0, 0, 0.6);
     border-radius: 3vh;
-    border: none; }
+    border: none;
+    -webkit-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.5); }
     .searchnlogin #login:hover {
       cursor: pointer;
-      -webkit-box-shadow: .2vh .2vh .2vh #6241E6;
-      box-shadow: .2vh .2vh .2vh #6241E6;
       background: -webkit-linear-gradient(223deg, #FFA883 0%, #3927FF 100%);
       background: -o-linear-gradient(223deg, #FFA883 0%, #3927FF 100%);
       background: linear-gradient(227deg, #FFA883 0%, #3927FF 100%);
@@ -309,11 +314,11 @@ table {
       height: 5.4vh;
       background: rgba(0, 0, 0, 0.6);
       border-radius: 3vh;
-      border: none; }
+      border: none;
+      -webkit-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.5);
+      box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.5); }
       .albumdetail .albumbutton .addtomyalbum:hover {
         cursor: pointer;
-        -webkit-box-shadow: .2vh .2vh .2vh #6241E6;
-        box-shadow: .2vh .2vh .2vh #6241E6;
         background: -webkit-linear-gradient(223deg, #FFA883 0%, #3927FF 100%);
         background: -o-linear-gradient(223deg, #FFA883 0%, #3927FF 100%);
         background: linear-gradient(227deg, #FFA883 0%, #3927FF 100%);
@@ -380,21 +385,20 @@ table {
         transition: background .2s;
         background: -webkit-linear-gradient(223deg, #FFA883 0%, #3927FF 100%);
         background: -o-linear-gradient(223deg, #FFA883 0%, #3927FF 100%);
-        background: linear-gradient(227deg, #FFA883 0%, #3927FF 100%); }
+        background: linear-gradient(227deg, #FFA883 0%, #3927FF 100%);
+        cursor: pointer; }
+    .tunemenu table td {
+      text-align: center; }
     .tunemenu table .odd {
       background-color: #222222; }
     .tunemenu table .num {
-      width: 10vh;
-      text-align: center; }
+      width: 10vh; }
     .tunemenu table .title {
-      width: 80vh;
-      text-align: center; }
+      width: 80vh; }
     .tunemenu table .time {
-      width: 10vh;
-      text-align: center; }
+      width: 10vh; }
     .tunemenu table .pnm {
-      width: 15vh;
-      text-align: center; }
+      width: 15vh; }
       .tunemenu table .pnm button {
         overflow: hidden;
         text-indent: 200%;
@@ -407,6 +411,12 @@ table {
         padding: 0;
         border: none;
         margin: 0 5%; }
+        .tunemenu table .pnm button:hover {
+          cursor: pointer;
+          -webkit-transform: translateY(0.1vh) translateX(0.1vh);
+          -ms-transform: translateY(0.1vh) translateX(0.1vh);
+          transform: translateY(0.1vh) translateX(0.1vh);
+          background-color: #6241E6; }
       .tunemenu table .pnm .pbtn {
         -webkit-mask-image: url(../img/plus-solid.svg);
         mask-image: url(../img/plus-solid.svg); }
