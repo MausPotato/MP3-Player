@@ -21,6 +21,10 @@ $font-ss:2vh;/*16px*/
   grid-template-areas: "aside playerinfo";
   grid-template-rows: 100%; 
   grid-template-columns: 17.8% 82.2%;
+  @media (max-width: 414px) {
+    grid-template-areas: "playerinfo";
+    grid-template-columns: 100%;
+  }
 }
 
 .aside {
@@ -32,6 +36,11 @@ $font-ss:2vh;/*16px*/
                        "albumlist"
                        "albumcover";
   grid-template-rows: 9.1% 64.3% 26.6%;
+  // todo再確認格式
+  @media (max-width: 414px) {
+    grid-template-areas: "albumlist";
+    grid-template-rows: 50%;
+  }
 }
 .addalbum {
   grid-area: addalbum;
@@ -62,7 +71,15 @@ $font-ss:2vh;/*16px*/
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding: 0 3vh;
+    padding-left: 3vh;
+    span {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      &:hover {
+        white-space: normal;
+      }
+    }
     &:hover {
       background: rgba(42,42,42,0.90);
       background-image: linear-gradient(270deg, #FFA883 0%, #3927FF 100%);
@@ -110,6 +127,9 @@ $font-ss:2vh;/*16px*/
   background-position: top center;
   background-size: 74.5vh;
   background-repeat: repeat-x;
+  @media (max-width: 414px) {
+    
+  }
 }
 .searchnlogin {
   grid-area: searchnlogin;
@@ -124,6 +144,9 @@ $font-ss:2vh;/*16px*/
     padding: 0 1%;
     background-color: rgba(0, 0, 0, 0);
     transition: background-color .2s .8s;
+    @media (max-width: 414px) {
+      padding: 0 2.5%;
+    }
     input {
       width: 0vh;
       border: none;
@@ -182,6 +205,9 @@ $font-ss:2vh;/*16px*/
   justify-content: space-around;
   .albumcover img {
     height: 23vh;
+    @media (max-width: 414px) {
+      display: none;
+    }
   }
   .albumtitle {
     color: #fff;
@@ -239,6 +265,9 @@ $font-ss:2vh;/*16px*/
       }
     }
   }
+  @media (max-width: 414px) {
+    
+  }
 }
 .tunemenu {
   grid-area: tunemenu;
@@ -254,6 +283,9 @@ $font-ss:2vh;/*16px*/
   scrollbar-width: none;
   table {
     width: 90%;
+    @media (max-width: 414px) {
+      width: 100%;
+    }
     tr {
       height: 7vh;
       display: flex;
@@ -272,16 +304,17 @@ $font-ss:2vh;/*16px*/
       background-color: #222222;
     }
     .num {
-      width: 10vh;
+      width: 7%;
     }
     .title {
-      width: 80vh;
+      width: 75%;
+      padding: 0 2%;
     }
     .time {
-      width: 10vh;
+      width: 6%;
     }
     .pnm {
-      width: 15vh;
+      width: 12%;
       button {
         overflow: hidden;
         text-indent: 200%;
@@ -292,7 +325,7 @@ $font-ss:2vh;/*16px*/
         height: 2vh;
         padding: 0;
         border: none;
-        margin: 0 5%;
+        margin: 0 10%;
         &:hover {
         cursor: pointer;
         transform: translateY(.1vh)translateX(.1vh);
@@ -306,6 +339,31 @@ $font-ss:2vh;/*16px*/
         mask-image: url(../img/minus-solid.svg);
       }
     }
+    @media (max-width: 414px) {
+      .num {
+        width: 3vh;
+      }
+      .title {
+        width: 28vh;
+        text-align: left;
+        padding: 0;
+        span {
+          display: block;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          &:hover {
+            // todo跑馬燈
+          }
+        }
+      }
+      .time {
+        width: 3vh;
+      }
+      .pnm {
+        width: 8vh;
+      }
+    }
   }
 }
 
@@ -317,6 +375,11 @@ $font-ss:2vh;/*16px*/
                        ". barbutton volume";
   grid-template-rows: 1vh auto;
   grid-template-columns: 1fr 40% 1fr;
+  @media (max-width: 414px) {
+    grid-template-areas: "tunebar"
+                         "barbutton";
+    grid-template-columns: 100%;
+  }
 }
 .tunebar {
   grid-area: tunebar;
@@ -416,5 +479,8 @@ $font-ss:2vh;/*16px*/
         background:#fff;
       }
     }
+  }
+  @media (max-width: 414px) {
+    display: none;
   }
 }
