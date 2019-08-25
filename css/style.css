@@ -70,6 +70,43 @@ table {
       -ms-grid-columns: 100%;
       grid-template-columns: 100%; } }
 
+#disableclick {
+  position: absolute;
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99;
+  opacity: .9;
+  background-color: black; }
+
+#login {
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  position: absolute;
+  top: 32.5%;
+  left: calc(50% - 30vh);
+  width: 60vh;
+  height: 25vh;
+  padding: 2% 0;
+  z-index: 100;
+  background-color: #268785;
+  border-radius: 1vh;
+  color: #fff; }
+  #login h1 {
+    font-size: 5vh; }
+  #login .btn {
+    width: 80%; }
+
 .aside {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
@@ -111,6 +148,8 @@ table {
     display: inline-block; }
   .addalbum:hover {
     cursor: pointer; }
+  .addalbum a {
+    display: none; }
 
 .albumlist {
   -ms-grid-row: 2;
@@ -196,17 +235,23 @@ table {
   grid-template-rows: 4fr 4.3% 35fr 23% 11fr 38.3% 9.4%;
   -ms-grid-columns: 1fr 88.4% 1fr;
   grid-template-columns: 1fr 88.4% 1fr;
-  background-image: url(https://i.ytimg.com/vi/gUeARiwv9lU/maxresdefault.jpg);
-  background-position: top center;
-  background-size: 74.5vh;
-  background-repeat: repeat-x; }
+  position: relative; }
 
 @media (max-width: 414px) {
     .playerinfo {
     -ms-grid-row: 1;
     -ms-grid-column: 1; } }
 
-.searchnlogin {
+#coverbg {
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  height: 41.8vh;
+  background-image: url(https://c-sf.smule.com/sf/s94/arr/f2/44/3042f50c-93d8-4553-b69d-acd60d416908_512.jpg);
+  background-position: center;
+  background-size: cover; }
+
+.searchnuser {
   -ms-grid-row: 2;
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
@@ -217,8 +262,9 @@ table {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  padding: 0 2%; }
-  .searchnlogin #search {
+  padding: 0 2%;
+  z-index: 1; }
+  .searchnuser #search {
     border-radius: 3.5vh;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -234,9 +280,9 @@ table {
     -o-transition: background-color .2s .8s;
     transition: background-color .2s .8s; }
     @media (max-width: 414px) {
-      .searchnlogin #search {
+      .searchnuser #search {
         padding: 0 2.5%; } }
-    .searchnlogin #search input {
+    .searchnuser #search input {
       width: 0vh;
       border: none;
       background-color: #2A2A2A;
@@ -245,7 +291,7 @@ table {
       -webkit-transition: width 1s, background-color .2s .8s;
       -o-transition: width 1s, background-color .2s .8s;
       transition: width 1s, background-color .2s .8s; }
-    .searchnlogin #search button {
+    .searchnuser #search button {
       border: none;
       background-color: #fff;
       padding: 0;
@@ -263,23 +309,23 @@ table {
       transition: background-color .2s .8s;
       -webkit-filter: drop-shadow(0.3vh 0.3vh 0.2vh black);
       filter: drop-shadow(0.3vh 0.3vh 0.2vh black); }
-    .searchnlogin #search:hover, .searchnlogin #search:active {
+    .searchnuser #search:hover, .searchnuser #search:active {
       background-color: #fff;
       -webkit-transition: background-color;
       -o-transition: background-color;
       transition: background-color; }
-      .searchnlogin #search:hover input, .searchnlogin #search:active input {
+      .searchnuser #search:hover input, .searchnuser #search:active input {
         width: 22vh;
         background-color: #fff;
         -webkit-transition: width 1s, background-color;
         -o-transition: width 1s, background-color;
         transition: width 1s, background-color; }
-      .searchnlogin #search:hover button, .searchnlogin #search:active button {
-        background-color: #6241E6;
+      .searchnuser #search:hover button, .searchnuser #search:active button {
+        background-color: #66BAB7;
         -webkit-transition: background-color;
         -o-transition: background-color;
         transition: background-color; }
-  .searchnlogin #login {
+  .searchnuser #user {
     color: #fff;
     font-family: 'Roboto', sans-serif, 'Noto Sans TC', sans-serif;
     font-size: 2vh;
@@ -289,7 +335,7 @@ table {
     border: none;
     -webkit-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.5);
     box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.5); }
-    .searchnlogin #login:hover {
+    .searchnuser #user:hover {
       cursor: pointer;
       background: -webkit-linear-gradient(223deg, #FFA883 0%, #3927FF 100%);
       background: -o-linear-gradient(223deg, #FFA883 0%, #3927FF 100%);
@@ -306,7 +352,8 @@ table {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: distribute;
-  justify-content: space-around; }
+  justify-content: space-around;
+  z-index: 1; }
   .albumdetail .albumcover img {
     height: 23vh; }
     @media (max-width: 414px) {
@@ -333,13 +380,14 @@ table {
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
     -webkit-box-align: end;
     -ms-flex-align: end;
     align-items: flex-end; }
     .albumdetail .albumbutton .addtomyalbum {
+      display: none;
       color: #fff;
       font-family: 'Roboto', sans-serif, 'Noto Sans TC', sans-serif;
       font-size: 2vh;
@@ -361,9 +409,7 @@ table {
     .albumdetail .albumbutton .playmusic {
       width: 10vh;
       height: 10vh;
-      background-image: -webkit-linear-gradient(223deg, #FFA883 0%, #3927FF 100%);
-      background-image: -o-linear-gradient(223deg, #FFA883 0%, #3927FF 100%);
-      background-image: linear-gradient(227deg, #FFA883 0%, #3927FF 100%);
+      background-color: #268785;
       -webkit-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.5);
       box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.5);
       border: none;
@@ -376,9 +422,7 @@ table {
         vertical-align: middle; }
       .albumdetail .albumbutton .playmusic:hover {
         cursor: pointer;
-        background: -webkit-linear-gradient(223deg, #3927FF 0%, #FFA883 100%);
-        background: -o-linear-gradient(223deg, #3927FF 0%, #FFA883 100%);
-        background: linear-gradient(227deg, #3927FF 0%, #FFA883 100%);
+        background-color: #217472;
         -webkit-transform: translateY(0.2vh) translateX(0.2vh);
         -ms-transform: translateY(0.2vh) translateX(0.2vh);
         transform: translateY(0.2vh) translateX(0.2vh); }
@@ -419,9 +463,9 @@ table {
         -webkit-transition: background .2s;
         -o-transition: background .2s;
         transition: background .2s;
-        background: -webkit-linear-gradient(223deg, #FFA883 0%, #3927FF 100%);
-        background: -o-linear-gradient(223deg, #FFA883 0%, #3927FF 100%);
-        background: linear-gradient(227deg, #FFA883 0%, #3927FF 100%);
+        background: -webkit-linear-gradient(223deg, #66BAB7 0%, #1A5F5E 100%);
+        background: -o-linear-gradient(223deg, #66BAB7 0%, #1A5F5E 100%);
+        background: linear-gradient(227deg, #66BAB7 0%, #1A5F5E 100%);
         cursor: pointer; }
     .tunemenu table td {
       text-align: center; }
@@ -453,7 +497,7 @@ table {
           -webkit-transform: translateY(0.1vh) translateX(0.1vh);
           -ms-transform: translateY(0.1vh) translateX(0.1vh);
           transform: translateY(0.1vh) translateX(0.1vh);
-          background-color: #6241E6; }
+          background-color: #66BAB7; }
       .tunemenu table .pnm .pbtn {
         -webkit-mask-image: url(../img/plus-solid.svg);
         mask-image: url(../img/plus-solid.svg); }
@@ -523,9 +567,9 @@ table {
         display: flex;
         -webkit-box-align: center;
         align-items: center;
-        background-image: -webkit-gradient(linear, left top, right top, from(red), color-stop(60%, purple), color-stop(60%, gray), to(gray));
-        background-image: -webkit-linear-gradient(left, red 0%, purple 60%, gray 60%, gray 100%);
-        background-image: linear-gradient(to right, red 0%, purple 60%, gray 60%, gray 100%); }
+        background-image: -webkit-gradient(linear, left top, right top, from(#66BAB7), color-stop(60%, #1A5F5E), color-stop(60%, gray), to(gray));
+        background-image: -webkit-linear-gradient(left, #66BAB7 0%, #1A5F5E 60%, gray 60%, gray 100%);
+        background-image: linear-gradient(to right, #66BAB7 0%, #1A5F5E 60%, gray 60%, gray 100%); }
       .tunebar input[type="range"]::-webkit-slider-thumb {
         -webkit-appearance: none;
         width: 2vh;
@@ -556,7 +600,7 @@ table {
     -webkit-transform: translateY(0.1vh) translateX(0.1vh);
     -ms-transform: translateY(0.1vh) translateX(0.1vh);
     transform: translateY(0.1vh) translateX(0.1vh);
-    background-color: #6241E6; }
+    background-color: #268785; }
 
 .barbutton {
   -ms-grid-row: 2;

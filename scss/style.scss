@@ -27,6 +27,40 @@ $font-ss:2vh;/*16px*/
   }
 }
 
+#disableclick {
+  position: absolute;
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99;
+  opacity: .9;
+  background-color: black;
+}
+
+#login {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  position: absolute;
+  top: 32.5%;
+  left: calc(50% - 30vh);
+  width: 60vh;
+  height: 25vh;
+  padding: 2% 0;
+  z-index: 100;
+  background-color: #268785;
+  border-radius: 1vh;
+  color: #fff;
+  h1 {
+    font-size: $font-l;
+  }
+  .btn {
+    width: 80%;
+  }
+}
+
 .aside {
   grid-area: aside;
   background-image: linear-gradient(180deg, #222222 23%, #0C0C0C 100%);
@@ -55,6 +89,9 @@ $font-ss:2vh;/*16px*/
   }
   &:hover {
     cursor: pointer;
+  }
+  a {
+    display: none;
   }
 }
 .albumlist {
@@ -123,19 +160,27 @@ $font-ss:2vh;/*16px*/
                        "playerbar playerbar playerbar";
   grid-template-rows: 4fr 4.3% 35fr 23% 11fr 38.3% 9.4%;
   grid-template-columns: 1fr 88.4% 1fr;
-  background-image: url(https://i.ytimg.com/vi/gUeARiwv9lU/maxresdefault.jpg);
-  background-position: top center;
-  background-size: 74.5vh;
-  background-repeat: repeat-x;
+  position: relative;
   @media (max-width: 414px) {
     
   }
 }
-.searchnlogin {
+#coverbg {
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  height: 41.8vh;
+  //background-image: url(https://i.ytimg.com/vi/gUeARiwv9lU/maxresdefault.jpg);
+  background-image: url(https://c-sf.smule.com/sf/s94/arr/f2/44/3042f50c-93d8-4553-b69d-acd60d416908_512.jpg);
+  background-position: center;
+  background-size: cover;
+}
+.searchnuser {
   grid-area: searchnlogin;
   display: flex;
   justify-content: space-between;
   padding: 0 2%;
+  z-index: 1;
   #search {
     border-radius: 3.5vh;
     display: flex;
@@ -178,12 +223,12 @@ $font-ss:2vh;/*16px*/
         transition: width 1s, background-color;
       }
       button {
-        background-color: #6241E6;
+        background-color: #66BAB7;
         transition: background-color;
       }
     }
   }
-  #login {
+  #user {
     color: #fff;
     font-family: 'Roboto', sans-serif, 'Noto Sans TC', sans-serif;
     font-size: $font-ss;
@@ -203,6 +248,7 @@ $font-ss:2vh;/*16px*/
   grid-area: albumdetail;
   display: flex;
   justify-content: space-around;
+  z-index: 1;
   .albumcover img {
     height: 23vh;
     @media (max-width: 414px) {
@@ -226,9 +272,10 @@ $font-ss:2vh;/*16px*/
   .albumbutton {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: flex-end;
     .addtomyalbum {
+      display: none;
       color: #fff;
       font-family: 'Roboto', sans-serif, 'Noto Sans TC', sans-serif;
       font-size: $font-ss;
@@ -247,7 +294,7 @@ $font-ss:2vh;/*16px*/
     .playmusic {
       width: 10vh;
       height: 10vh;
-      background-image: linear-gradient(227deg, #FFA883 0%, #3927FF 100%);
+      background-color: #268785;
       box-shadow: 0 2px 8px 0 rgba(0,0,0,0.50);
       border: none;
       border-radius: 50%;
@@ -260,7 +307,7 @@ $font-ss:2vh;/*16px*/
       }
       &:hover {
         cursor: pointer;
-        background: linear-gradient(227deg, #3927FF 0%, #FFA883 100%);
+        background-color: #217472;
         transform: translateY(.2vh)translateX(.2vh);
       }
     }
@@ -293,7 +340,7 @@ $font-ss:2vh;/*16px*/
       align-items: center;
       &:hover {
         transition: background .2s;
-        background: linear-gradient(227deg, #FFA883 0%, #3927FF 100%);
+        background: linear-gradient(227deg, #66BAB7 0%, #1A5F5E 100%);
         cursor: pointer;
       }
     }
@@ -329,7 +376,7 @@ $font-ss:2vh;/*16px*/
         &:hover {
         cursor: pointer;
         transform: translateY(.1vh)translateX(.1vh);
-        background-color: #6241E6;
+        background-color: #66BAB7;
         }
       }
       .pbtn {
@@ -399,7 +446,7 @@ $font-ss:2vh;/*16px*/
         height: 1vh;
         display: flex;
         align-items: center;
-        background-image: linear-gradient(to right, red 0%, purple 60%, gray 60%, gray 100%);
+        background-image: linear-gradient(to right, #66BAB7 0%, #1A5F5E 60%, gray 60%, gray 100%);
       }
       &::-webkit-slider-thumb {
         -webkit-appearance: none;
@@ -428,7 +475,7 @@ $font-ss:2vh;/*16px*/
   &:hover {
     cursor: pointer;
     transform: translateY(.1vh)translateX(.1vh);
-    background-color: #6241E6;
+    background-color: #268785;
   }
 }
 .barbutton {
