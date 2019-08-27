@@ -61,6 +61,14 @@ $font-ss:2vh;/*16px*/
   }
 }
 
+.darkenbg {
+  width: 100%;
+  height: 100%;
+  background-image: url(https://c-sf.smule.com/sf/s94/arr/f2/44/3042f50c-93d8-4553-b69d-acd60d416908_512.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
 .aside {
   grid-area: aside;
   background-image: linear-gradient(180deg, #222222 23%, #0C0C0C 100%);
@@ -119,7 +127,7 @@ $font-ss:2vh;/*16px*/
     }
     &:hover {
       background: rgba(42,42,42,0.90);
-      background-image: linear-gradient(270deg, #FFA883 0%, #3927FF 100%);
+      background: linear-gradient(227deg, #66BAB7 0%, #1A5F5E 100%);
       color: #FFF;
       cursor: pointer;
     }
@@ -127,13 +135,21 @@ $font-ss:2vh;/*16px*/
 }
 .currentinfo {
   grid-area: albumcover;
-  background-image: url(https://c-sf.smule.com/sf/s94/arr/f2/44/3042f50c-93d8-4553-b69d-acd60d416908_512.jpg);
-  background-size: cover;
+  //background-image: url(https://c-sf.smule.com/sf/s94/arr/f2/44/3042f50c-93d8-4553-b69d-acd60d416908_512.jpg);
+  //background-size: cover;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   color: #FFF;
   padding: 0 3vh;
+  position: relative;
+  .darkenbg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-position: top;
+    filter: brightness(.4);
+  }
   h3 {
     padding-bottom: .5vh;
     filter: drop-shadow(.3vh .3vh .2vh black);
@@ -161,19 +177,15 @@ $font-ss:2vh;/*16px*/
   grid-template-rows: 4fr 4.3% 35fr 23% 11fr 38.3% 9.4%;
   grid-template-columns: 1fr 88.4% 1fr;
   position: relative;
-  @media (max-width: 414px) {
-    
-  }
 }
 #coverbg {
   position: absolute;
   overflow: hidden;
   width: 100%;
   height: 41.8vh;
-  //background-image: url(https://i.ytimg.com/vi/gUeARiwv9lU/maxresdefault.jpg);
-  background-image: url(https://c-sf.smule.com/sf/s94/arr/f2/44/3042f50c-93d8-4553-b69d-acd60d416908_512.jpg);
-  background-position: center;
-  background-size: cover;
+  .darkenbg {
+    filter: brightness(.5) blur(.5vh);
+  }
 }
 .searchnuser {
   grid-area: searchnlogin;
@@ -342,6 +354,7 @@ $font-ss:2vh;/*16px*/
         transition: background .2s;
         background: linear-gradient(227deg, #66BAB7 0%, #1A5F5E 100%);
         cursor: pointer;
+        //filter: drop-shadow(.3vh .3vh .2vh black);
       }
     }
     td {
@@ -356,6 +369,7 @@ $font-ss:2vh;/*16px*/
     .title {
       width: 75%;
       padding: 0 2%;
+      //filter: drop-shadow(.2vh .2vh .1vh black);
     }
     .time {
       width: 6%;
