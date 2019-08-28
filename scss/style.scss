@@ -15,7 +15,6 @@ $font-ss:2vh;/*16px*/
   background-color: #2A2A2A;
   font-family: 'Roboto', sans-serif, 'Noto Sans TC', sans-serif;
   font-size: $font-s;
-  margin: 0 auto;
   overflow: hidden;
   display: grid;
   grid-template-areas: "aside playerinfo";
@@ -27,46 +26,37 @@ $font-ss:2vh;/*16px*/
   }
 }
 
-#disableclick {
-  position: absolute;
-  display: none;
-  width: 100vw;
-  height: 100vh;
-  z-index: 99;
-  opacity: .9;
-  background-color: black;
-}
-
-#login {
-  display: none;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
-  position: absolute;
-  top: 32.5%;
-  left: calc(50% - 30vh);
-  width: 60vh;
-  height: 25vh;
-  padding: 2% 0;
-  z-index: 100;
-  background-color: #268785;
-  border-radius: 1vh;
-  color: #fff;
-  h1 {
-    font-size: $font-l;
-  }
-  .btn {
-    width: 80%;
-  }
-}
-
 .darkenbg {
   width: 100%;
   height: 100%;
+  //js更換
   background-image: url(https://c-sf.smule.com/sf/s94/arr/f2/44/3042f50c-93d8-4553-b69d-acd60d416908_512.jpg);
   background-position: center;
   background-size: cover;
+}
+
+.marquee {
+  overflow: hidden;
+  position: relative;
+  span {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    position: absolute;
+  }
+  &:hover span {
+    //transition: transform 5s linear;
+    animation-name: marquee;//4s linear infinite;
+    animation-direction: calc(100% - 17.8vw);
+    animation-delay: -2s;
+    @keyframes marquee {
+      from {
+        transform: translateX(17.8vw);
+      }
+      to {
+        transform: translateX(calc(-100% - 3vh + 50%));
+      }
+    }
+  }
 }
 
 .aside {
@@ -78,10 +68,12 @@ $font-ss:2vh;/*16px*/
                        "albumlist"
                        "albumcover";
   grid-template-rows: 9.1% 64.3% 26.6%;
+  grid-template-columns: 100%;
   // todo再確認格式
   @media (max-width: 414px) {
-    grid-template-areas: "albumlist";
-    grid-template-rows: 50%;
+    grid-template-areas: "addalbum"
+                         "albumlist";
+    grid-template-rows: 9.1% 90.9%;
   }
 }
 .addalbum {
@@ -98,9 +90,6 @@ $font-ss:2vh;/*16px*/
   &:hover {
     cursor: pointer;
   }
-  a {
-    display: none;
-  }
 }
 .albumlist {
   grid-area: albumlist;
@@ -116,13 +105,13 @@ $font-ss:2vh;/*16px*/
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding-left: 3vh;
+    padding: 0 3vh;
     span {
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
       &:hover {
-        white-space: normal;
+        //white-space: normal;
       }
     }
     &:hover {
@@ -168,7 +157,7 @@ $font-ss:2vh;/*16px*/
   grid-area: playerinfo;
   display: grid;
   grid-template-areas: ". . ."
-                       "searchnlogin searchnlogin searchnlogin"
+                       "topmenu topmenu topmenu"
                        ". . ."
                        ". albumdetail ."
                        ". . ."
@@ -187,8 +176,8 @@ $font-ss:2vh;/*16px*/
     filter: brightness(.5) blur(.5vh);
   }
 }
-.searchnuser {
-  grid-area: searchnlogin;
+.topmenu {
+  grid-area: topmenu;
   display: flex;
   justify-content: space-between;
   padding: 0 2%;
@@ -240,19 +229,10 @@ $font-ss:2vh;/*16px*/
       }
     }
   }
-  #user {
-    color: #fff;
-    font-family: 'Roboto', sans-serif, 'Noto Sans TC', sans-serif;
-    font-size: $font-ss;
-    width: 15vh;
-    background: rgba(0,0,0,0.60);
-    border-radius: 3vh;
-    border: none;
-    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.50);
-    &:hover {
-      cursor: pointer;
-      background: linear-gradient(227deg, #FFA883 0%, #3927FF 100%);
-      transform: translateY(.2vh)translateX(.2vh);
+  #menu {
+    display: none;
+    @media (max-width: 414px) {
+      display: block;
     }
   }
 }

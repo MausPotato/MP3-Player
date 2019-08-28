@@ -55,7 +55,6 @@ table {
   background-color: #2A2A2A;
   font-family: 'Roboto', sans-serif, 'Noto Sans TC', sans-serif;
   font-size: 2.3vh;
-  margin: 0 auto;
   overflow: hidden;
   display: -ms-grid;
   display: grid;
@@ -70,49 +69,44 @@ table {
       -ms-grid-columns: 100%;
       grid-template-columns: 100%; } }
 
-#disableclick {
-  position: absolute;
-  display: none;
-  width: 100vw;
-  height: 100vh;
-  z-index: 99;
-  opacity: .9;
-  background-color: black; }
-
-#login {
-  display: none;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -ms-flex-pack: distribute;
-  justify-content: space-around;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  position: absolute;
-  top: 32.5%;
-  left: calc(50% - 30vh);
-  width: 60vh;
-  height: 25vh;
-  padding: 2% 0;
-  z-index: 100;
-  background-color: #268785;
-  border-radius: 1vh;
-  color: #fff; }
-  #login h1 {
-    font-size: 5vh; }
-  #login .btn {
-    width: 80%; }
-
 .darkenbg {
   width: 100%;
   height: 100%;
   background-image: url(https://c-sf.smule.com/sf/s94/arr/f2/44/3042f50c-93d8-4553-b69d-acd60d416908_512.jpg);
   background-position: center;
   background-size: cover; }
+
+.marquee {
+  overflow: hidden;
+  position: relative; }
+  .marquee span {
+    white-space: nowrap;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    position: absolute; }
+  .marquee:hover span {
+    -webkit-animation-name: marquee;
+    animation-name: marquee;
+    -webkit-animation-direction: calc(100% - 17.8vw);
+    animation-direction: calc(100% - 17.8vw);
+    -webkit-animation-delay: -2s;
+    animation-delay: -2s; }
+
+@-webkit-keyframes marquee {
+  from {
+    -webkit-transform: translateX(17.8vw);
+    transform: translateX(17.8vw); }
+  to {
+    -webkit-transform: translateX(calc(-100% - 3vh + 50%));
+    transform: translateX(calc(-100% - 3vh + 50%)); } }
+
+@keyframes marquee {
+  from {
+    -webkit-transform: translateX(17.8vw);
+    transform: translateX(17.8vw); }
+  to {
+    -webkit-transform: translateX(calc(-100% - 3vh + 50%));
+    transform: translateX(calc(-100% - 3vh + 50%)); } }
 
 .aside {
   -ms-grid-row: 1;
@@ -128,12 +122,14 @@ table {
   display: grid;
   grid-template-areas: "addalbum" "albumlist" "albumcover";
   -ms-grid-rows: 9.1% 64.3% 26.6%;
-  grid-template-rows: 9.1% 64.3% 26.6%; }
+  grid-template-rows: 9.1% 64.3% 26.6%;
+  -ms-grid-columns: 100%;
+  grid-template-columns: 100%; }
   @media (max-width: 414px) {
     .aside {
-      grid-template-areas: "albumlist";
-      -ms-grid-rows: 50%;
-      grid-template-rows: 50%; } }
+      grid-template-areas: "addalbum" "albumlist";
+      -ms-grid-rows: 9.1% 90.9%;
+      grid-template-rows: 9.1% 90.9%; } }
 
 .addalbum {
   -ms-grid-row: 1;
@@ -155,8 +151,6 @@ table {
     display: inline-block; }
   .addalbum:hover {
     cursor: pointer; }
-  .addalbum a {
-    display: none; }
 
 .albumlist {
   -ms-grid-row: 2;
@@ -179,14 +173,12 @@ table {
     -webkit-box-pack: start;
     -ms-flex-pack: start;
     justify-content: flex-start;
-    padding-left: 3vh; }
+    padding: 0 3vh; }
     .albumlist li span {
       overflow: hidden;
       white-space: nowrap;
       -o-text-overflow: ellipsis;
       text-overflow: ellipsis; }
-      .albumlist li span:hover {
-        white-space: normal; }
     .albumlist li:hover {
       background: rgba(42, 42, 42, 0.9);
       background: -webkit-linear-gradient(223deg, #66BAB7 0%, #1A5F5E 100%);
@@ -213,8 +205,11 @@ table {
   position: relative; }
 
 @media (max-width: 414px) {
-    .albumlist {
+    .addalbum {
     -ms-grid-row: 1;
+    -ms-grid-column: 1; }
+    .albumlist {
+    -ms-grid-row: 2;
     -ms-grid-column: 1; } }
   .currentinfo .darkenbg {
     position: absolute;
@@ -242,7 +237,7 @@ table {
   grid-area: playerinfo;
   display: -ms-grid;
   display: grid;
-  grid-template-areas: ". . ." "searchnlogin searchnlogin searchnlogin" ". . ." ". albumdetail ." ". . ." ". tunemenu ." "playerbar playerbar playerbar";
+  grid-template-areas: ". . ." "topmenu topmenu topmenu" ". . ." ". albumdetail ." ". . ." ". tunemenu ." "playerbar playerbar playerbar";
   -ms-grid-rows: 4fr 4.3% 35fr 23% 11fr 38.3% 9.4%;
   grid-template-rows: 4fr 4.3% 35fr 23% 11fr 38.3% 9.4%;
   -ms-grid-columns: 1fr 88.4% 1fr;
@@ -263,11 +258,11 @@ table {
     -webkit-filter: brightness(0.5) blur(0.5vh);
     filter: brightness(0.5) blur(0.5vh); }
 
-.searchnuser {
+.topmenu {
   -ms-grid-row: 2;
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
-  grid-area: searchnlogin;
+  grid-area: topmenu;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -276,7 +271,7 @@ table {
   justify-content: space-between;
   padding: 0 2%;
   z-index: 1; }
-  .searchnuser #search {
+  .topmenu #search {
     border-radius: 3.5vh;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -292,9 +287,9 @@ table {
     -o-transition: background-color .2s .8s;
     transition: background-color .2s .8s; }
     @media (max-width: 414px) {
-      .searchnuser #search {
+      .topmenu #search {
         padding: 0 2.5%; } }
-    .searchnuser #search input {
+    .topmenu #search input {
       width: 0vh;
       border: none;
       background-color: #2A2A2A;
@@ -303,7 +298,7 @@ table {
       -webkit-transition: width 1s, background-color .2s .8s;
       -o-transition: width 1s, background-color .2s .8s;
       transition: width 1s, background-color .2s .8s; }
-    .searchnuser #search button {
+    .topmenu #search button {
       border: none;
       background-color: #fff;
       padding: 0;
@@ -321,40 +316,27 @@ table {
       transition: background-color .2s .8s;
       -webkit-filter: drop-shadow(0.3vh 0.3vh 0.2vh black);
       filter: drop-shadow(0.3vh 0.3vh 0.2vh black); }
-    .searchnuser #search:hover, .searchnuser #search:active {
+    .topmenu #search:hover, .topmenu #search:active {
       background-color: #fff;
       -webkit-transition: background-color;
       -o-transition: background-color;
       transition: background-color; }
-      .searchnuser #search:hover input, .searchnuser #search:active input {
+      .topmenu #search:hover input, .topmenu #search:active input {
         width: 22vh;
         background-color: #fff;
         -webkit-transition: width 1s, background-color;
         -o-transition: width 1s, background-color;
         transition: width 1s, background-color; }
-      .searchnuser #search:hover button, .searchnuser #search:active button {
+      .topmenu #search:hover button, .topmenu #search:active button {
         background-color: #66BAB7;
         -webkit-transition: background-color;
         -o-transition: background-color;
         transition: background-color; }
-  .searchnuser #user {
-    color: #fff;
-    font-family: 'Roboto', sans-serif, 'Noto Sans TC', sans-serif;
-    font-size: 2vh;
-    width: 15vh;
-    background: rgba(0, 0, 0, 0.6);
-    border-radius: 3vh;
-    border: none;
-    -webkit-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.5);
-    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.5); }
-    .searchnuser #user:hover {
-      cursor: pointer;
-      background: -webkit-linear-gradient(223deg, #FFA883 0%, #3927FF 100%);
-      background: -o-linear-gradient(223deg, #FFA883 0%, #3927FF 100%);
-      background: linear-gradient(227deg, #FFA883 0%, #3927FF 100%);
-      -webkit-transform: translateY(0.2vh) translateX(0.2vh);
-      -ms-transform: translateY(0.2vh) translateX(0.2vh);
-      transform: translateY(0.2vh) translateX(0.2vh); }
+  .topmenu #menu {
+    display: none; }
+    @media (max-width: 414px) {
+      .topmenu #menu {
+        display: block; } }
 
 .albumdetail {
   -ms-grid-row: 4;
