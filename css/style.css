@@ -46,6 +46,14 @@ table {
 /*26px*/
 /*18px*/
 /*16px*/
+.pbtn {
+  -webkit-mask-image: url(../img/plus-solid.svg);
+  mask-image: url(../img/plus-solid.svg); }
+
+.mbtn {
+  -webkit-mask-image: url(../img/minus-solid.svg);
+  mask-image: url(../img/minus-solid.svg); }
+
 *:focus {
   outline: none; }
 
@@ -76,51 +84,16 @@ table {
   background-position: center;
   background-size: cover; }
 
-.marquee {
-  overflow: hidden;
-  position: relative; }
-  .marquee span {
-    white-space: nowrap;
-    -o-text-overflow: ellipsis;
-    text-overflow: ellipsis;
-    position: absolute; }
-  .marquee:hover span {
-    -webkit-animation-name: marquee;
-    animation-name: marquee;
-    -webkit-animation-direction: calc(100% - 17.8vw);
-    animation-direction: calc(100% - 17.8vw);
-    -webkit-animation-delay: -2s;
-    animation-delay: -2s; }
-
-@-webkit-keyframes marquee {
-  from {
-    -webkit-transform: translateX(17.8vw);
-    transform: translateX(17.8vw); }
-  to {
-    -webkit-transform: translateX(calc(-100% - 3vh + 50%));
-    transform: translateX(calc(-100% - 3vh + 50%)); } }
-
-@keyframes marquee {
-  from {
-    -webkit-transform: translateX(17.8vw);
-    transform: translateX(17.8vw); }
-  to {
-    -webkit-transform: translateX(calc(-100% - 3vh + 50%));
-    transform: translateX(calc(-100% - 3vh + 50%)); } }
-
 .aside {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   grid-area: aside;
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(23%, #222222), to(#0C0C0C));
-  background-image: -webkit-linear-gradient(top, #222222 23%, #0C0C0C 100%);
-  background-image: -o-linear-gradient(top, #222222 23%, #0C0C0C 100%);
-  background-image: linear-gradient(180deg, #222222 23%, #0C0C0C 100%);
+  background-color: #222222;
   -webkit-box-shadow: 0 2px 30px 0 rgba(0, 0, 0, 0.29);
   box-shadow: 0 2px 30px 0 rgba(0, 0, 0, 0.29);
   display: -ms-grid;
   display: grid;
-  grid-template-areas: "addalbum" "albumlist" "albumcover";
+  grid-template-areas: "addalbum" "albumlist" "currentinfo";
   -ms-grid-rows: 9.1% 64.3% 26.6%;
   grid-template-rows: 9.1% 64.3% 26.6%;
   -ms-grid-columns: 100%;
@@ -136,7 +109,7 @@ table {
   -ms-grid-column: 1;
   grid-area: addalbum;
   background: #161616;
-  color: #979797;
+  color: #868686;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -151,6 +124,28 @@ table {
     display: inline-block; }
   .addalbum:hover {
     cursor: pointer; }
+  .addalbum button {
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    overflow: hidden;
+    text-indent: 200%;
+    white-space: nowrap;
+    border: none;
+    padding: 0;
+    margin: 0;
+    width: 2vh;
+    height: 2vh;
+    background-color: #7A7A7A; }
+    .addalbum button:hover {
+      cursor: pointer;
+      -webkit-transform: translateY(0.1vh) translateX(0.1vh);
+      -ms-transform: translateY(0.1vh) translateX(0.1vh);
+      transform: translateY(0.1vh) translateX(0.1vh);
+      background-color: #1A5F5E; }
+  .addalbum:hover h3 {
+    color: #FFF; }
+  .addalbum:hover button {
+    background-color: #FFF; }
 
 .albumlist {
   -ms-grid-row: 2;
@@ -170,10 +165,28 @@ table {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    -webkit-box-pack: start;
-    -ms-flex-pack: start;
-    justify-content: flex-start;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
     padding: 0 3vh; }
+    .albumlist li button {
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+      overflow: hidden;
+      text-indent: 200%;
+      white-space: nowrap;
+      border: none;
+      padding: 0;
+      margin: 0;
+      width: 2vh;
+      height: 2vh;
+      background-color: #222222; }
+      .albumlist li button:hover {
+        cursor: pointer;
+        -webkit-transform: translateY(0.1vh) translateX(0.1vh);
+        -ms-transform: translateY(0.1vh) translateX(0.1vh);
+        transform: translateY(0.1vh) translateX(0.1vh);
+        background-color: #1A5F5E; }
     .albumlist li span {
       overflow: hidden;
       white-space: nowrap;
@@ -186,11 +199,15 @@ table {
       background: linear-gradient(227deg, #66BAB7 0%, #1A5F5E 100%);
       color: #FFF;
       cursor: pointer; }
+      .albumlist li:hover button {
+        background-color: #868686; }
+        .albumlist li:hover button:hover {
+          background-color: #1A5F5E; }
 
 .currentinfo {
   -ms-grid-row: 3;
   -ms-grid-column: 1;
-  grid-area: albumcover;
+  grid-area: currentinfo;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -223,7 +240,7 @@ table {
     -webkit-filter: drop-shadow(0.3vh 0.3vh 0.2vh black);
     filter: drop-shadow(0.3vh 0.3vh 0.2vh black); }
   .currentinfo p {
-    color: #959595;
+    color: #868686;
     -webkit-filter: drop-shadow(0.3vh 0.3vh 0.2vh black);
     filter: drop-shadow(0.3vh 0.3vh 0.2vh black); }
   .currentinfo h2 {
@@ -299,31 +316,39 @@ table {
       -o-transition: width 1s, background-color .2s .8s;
       transition: width 1s, background-color .2s .8s; }
     .topmenu #search button {
-      border: none;
-      background-color: #fff;
-      padding: 0;
-      -webkit-mask-image: url(../img/search.svg);
-      mask-image: url(../img/search.svg);
       -webkit-mask-repeat: no-repeat;
       mask-repeat: no-repeat;
       overflow: hidden;
       text-indent: 200%;
       white-space: nowrap;
+      border: none;
+      padding: 0;
+      margin: 0;
       width: 2.5vh;
       height: 2.5vh;
+      background-color: #FFF; }
+      .topmenu #search button:hover {
+        cursor: pointer;
+        -webkit-transform: translateY(0.1vh) translateX(0.1vh);
+        -ms-transform: translateY(0.1vh) translateX(0.1vh);
+        transform: translateY(0.1vh) translateX(0.1vh);
+        background-color: #1A5F5E; }
+    .topmenu #search button {
+      -webkit-mask-image: url(../img/search.svg);
+      mask-image: url(../img/search.svg);
       -webkit-transition: background-color .2s .8s;
       -o-transition: background-color .2s .8s;
       transition: background-color .2s .8s;
       -webkit-filter: drop-shadow(0.3vh 0.3vh 0.2vh black);
       filter: drop-shadow(0.3vh 0.3vh 0.2vh black); }
     .topmenu #search:hover, .topmenu #search:active {
-      background-color: #fff;
+      background-color: #FFF;
       -webkit-transition: background-color;
       -o-transition: background-color;
       transition: background-color; }
       .topmenu #search:hover input, .topmenu #search:active input {
         width: 22vh;
-        background-color: #fff;
+        background-color: #FFF;
         -webkit-transition: width 1s, background-color;
         -o-transition: width 1s, background-color;
         transition: width 1s, background-color; }
@@ -354,7 +379,7 @@ table {
       .albumdetail .albumcover img {
         display: none; } }
   .albumdetail .albumtitle {
-    color: #fff;
+    color: #FFF;
     width: 60vh; }
     .albumdetail .albumtitle h1 {
       font-size: 5vh;
@@ -382,7 +407,7 @@ table {
     align-items: flex-end; }
     .albumdetail .albumbutton .addtomyalbum {
       display: none;
-      color: #fff;
+      color: #FFF;
       font-family: 'Roboto', sans-serif, 'Noto Sans TC', sans-serif;
       font-size: 2vh;
       width: 21.4vh;
@@ -394,9 +419,9 @@ table {
       box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.5); }
       .albumdetail .albumbutton .addtomyalbum:hover {
         cursor: pointer;
-        background: -webkit-linear-gradient(223deg, #FFA883 0%, #3927FF 100%);
-        background: -o-linear-gradient(223deg, #FFA883 0%, #3927FF 100%);
-        background: linear-gradient(227deg, #FFA883 0%, #3927FF 100%);
+        background: -webkit-linear-gradient(223deg, #66BAB7 0%, #1A5F5E 100%);
+        background: -o-linear-gradient(223deg, #66BAB7 0%, #1A5F5E 100%);
+        background: linear-gradient(227deg, #66BAB7 0%, #1A5F5E 100%);
         -webkit-transform: translateY(0.2vh) translateX(0.2vh);
         -ms-transform: translateY(0.2vh) translateX(0.2vh);
         transform: translateY(0.2vh) translateX(0.2vh); }
@@ -408,15 +433,28 @@ table {
       box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.5);
       border: none;
       border-radius: 50%;
-      padding: 0; }
-      .albumdetail .albumbutton .playmusic i {
-        color: #fff;
-        font-size: 3.3vh;
-        text-align: right;
-        vertical-align: middle; }
+      padding: 0;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center; }
+      .albumdetail .albumbutton .playmusic p {
+        -webkit-mask-image: url(../img/play-solid.svg);
+        mask-image: url(../img/play-solid.svg);
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        overflow: hidden;
+        text-indent: 200%;
+        white-space: nowrap;
+        background-color: #FFF;
+        width: 3.3vh;
+        height: 3.3vh;
+        margin-left: 1vh; }
       .albumdetail .albumbutton .playmusic:hover {
         cursor: pointer;
-        background-color: #217472;
+        background-color: #1A5F5E;
         -webkit-transform: translateY(0.2vh) translateX(0.2vh);
         -ms-transform: translateY(0.2vh) translateX(0.2vh);
         transform: translateY(0.2vh) translateX(0.2vh); }
@@ -426,7 +464,7 @@ table {
   -ms-grid-column: 2;
   grid-area: tunemenu;
   background-color: #2A2A2A;
-  color: #fff;
+  color: #FFF;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -475,29 +513,23 @@ table {
     .tunemenu table .pnm {
       width: 12%; }
       .tunemenu table .pnm button {
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
         overflow: hidden;
         text-indent: 200%;
         white-space: nowrap;
-        -webkit-mask-repeat: no-repeat;
-        mask-repeat: no-repeat;
-        background-color: #7A7A7A;
+        border: none;
+        padding: 0;
+        margin: 0 10%;
         width: 2vh;
         height: 2vh;
-        padding: 0;
-        border: none;
-        margin: 0 10%; }
+        background-color: #7A7A7A; }
         .tunemenu table .pnm button:hover {
           cursor: pointer;
           -webkit-transform: translateY(0.1vh) translateX(0.1vh);
           -ms-transform: translateY(0.1vh) translateX(0.1vh);
           transform: translateY(0.1vh) translateX(0.1vh);
-          background-color: #66BAB7; }
-      .tunemenu table .pnm .pbtn {
-        -webkit-mask-image: url(../img/plus-solid.svg);
-        mask-image: url(../img/plus-solid.svg); }
-      .tunemenu table .pnm .mbtn {
-        -webkit-mask-image: url(../img/minus-solid.svg);
-        mask-image: url(../img/minus-solid.svg); }
+          background-color: #1A5F5E; }
     @media (max-width: 414px) {
       .tunemenu table .num {
         width: 3vh; }
@@ -529,6 +561,24 @@ table {
   grid-template-rows: 1vh auto;
   -ms-grid-columns: 1fr 40% 1fr;
   grid-template-columns: 1fr 40% 1fr; }
+  .playerbar button {
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    overflow: hidden;
+    text-indent: 200%;
+    white-space: nowrap;
+    border: none;
+    padding: 0;
+    margin: 0;
+    width: 3vh;
+    height: 3vh;
+    background-color: #868686; }
+    .playerbar button:hover {
+      cursor: pointer;
+      -webkit-transform: translateY(0.1vh) translateX(0.1vh);
+      -ms-transform: translateY(0.1vh) translateX(0.1vh);
+      transform: translateY(0.1vh) translateX(0.1vh);
+      background-color: #268785; }
   @media (max-width: 414px) {
     .playerbar {
       grid-template-areas: "tunebar" "barbutton";
@@ -568,33 +618,12 @@ table {
         -webkit-appearance: none;
         width: 2vh;
         height: 2vh;
-        background: #fff;
+        background: #FFF;
         border-radius: 50%;
         -webkit-transition: .2s;
         -o-transition: .2s;
         transition: .2s;
         z-index: 30; }
-
-.btn {
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  overflow: hidden;
-  text-indent: 200%;
-  white-space: nowrap;
-  border: none;
-  background-color: #474747;
-  position: relative;
-  -webkit-transition: background-color .2s;
-  -o-transition: background-color .2s;
-  transition: background-color .2s;
-  width: 3vh;
-  height: 3vh; }
-  .btn:hover {
-    cursor: pointer;
-    -webkit-transform: translateY(0.1vh) translateX(0.1vh);
-    -ms-transform: translateY(0.1vh) translateX(0.1vh);
-    transform: translateY(0.1vh) translateX(0.1vh);
-    background-color: #268785; }
 
 .barbutton {
   -ms-grid-row: 2;
@@ -665,7 +694,7 @@ table {
       .volume input[type="range"]::-webkit-slider-thumb {
         -webkit-appearance: none;
         position: relative;
-        background: #fff; }
+        background: #FFF; }
   @media (max-width: 414px) {
     .volume {
       display: none; } }
