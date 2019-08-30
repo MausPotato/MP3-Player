@@ -70,12 +70,18 @@ table {
   -ms-grid-rows: 100%;
   grid-template-rows: 100%;
   -ms-grid-columns: 17.8% 82.2%;
-  grid-template-columns: 17.8% 82.2%; }
+  grid-template-columns: 17.8% 82.2%;
+  position: relative; }
   @media (max-width: 414px) {
     .wrap {
       grid-template-areas: "playerinfo";
       -ms-grid-columns: 100%;
       grid-template-columns: 100%; } }
+  .wrap #player {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5; }
 
 .darkenbg {
   width: 100%;
@@ -200,7 +206,7 @@ table {
       color: #FFF;
       cursor: pointer; }
       .albumlist li:hover button {
-        background-color: #868686; }
+        background-color: #FFF; }
         .albumlist li:hover button:hover {
           background-color: #1A5F5E; }
 
@@ -523,7 +529,7 @@ table {
         margin: 0 10%;
         width: 2vh;
         height: 2vh;
-        background-color: #7A7A7A; }
+        background-color: #FFF; }
         .tunemenu table .pnm button:hover {
           cursor: pointer;
           -webkit-transform: translateY(0.1vh) translateX(0.1vh);

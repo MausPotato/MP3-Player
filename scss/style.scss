@@ -61,11 +61,20 @@ $lightgreen: #66BAB7;
   grid-template-areas: "aside playerinfo";
   grid-template-rows: 100%; 
   grid-template-columns: 17.8% 82.2%;
+  position: relative;
   @media (max-width: 414px) {
     grid-template-areas: "playerinfo";
     grid-template-columns: 100%;
   }
+  #player {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    //display: none;
+  }
 }
+
 
 .darkenbg {
   width: 100%;
@@ -147,7 +156,7 @@ $lightgreen: #66BAB7;
       color: #FFF;
       cursor: pointer;
       button {
-        background-color: $lightgray;
+        background-color: #FFF;
         &:hover {
           background-color: $darkgreen;
         }
@@ -385,7 +394,7 @@ $lightgreen: #66BAB7;
     }
     .pnm {
       width: 12%;
-      @include btn(0 10%, 2vh, $gray, $darkgreen);
+      @include btn(0 10%, 2vh, #FFF, $darkgreen);
     }
     @media (max-width: 414px) {
       .num {
