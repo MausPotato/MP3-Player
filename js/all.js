@@ -41,7 +41,7 @@ function onYouTubeIframeAPIReady() {
 loadGpi();
 loadPlayer();
 /*window.onload = function() {
-	alert(CONFIG.APIKEY);
+  alert(CONFIG.APIKEY);
 }*/
 
 /*
@@ -71,6 +71,7 @@ class Video {
     this.duration = response.result.items[0].contentDetails.duration;
     this.id = response.result.items[0].id;
     this.img = response.result.items[0].snippet.thumbnails.default;
+    this.isLive = (response.result.items[0].snippet.liveBroadcastContent == 'live');
   }
   show() {
     console.log(`title: ${this.title}\nduration: ${this.duration}\nid: ${this.id}`);
@@ -114,3 +115,48 @@ class Video {
   }
 }
 
+const REPEAT = {
+  NONE: 0,
+  ONE: 1,
+  ALL: 2
+}
+
+class PlayList {
+  constructor(title, description) {
+    this.title = title;
+    this.description = description;
+    this.publishedAt = new Date(Date.now());
+    this.list = [];
+    this.shuffle = false;
+    this.repeat = REPEAT.NONE;
+  }
+  /*shuffle() {
+    let length = this.list.length;
+    let random;
+    while (length) {
+      random = Math.floor(Math.random() * length--);
+      [this.list[length], this.list[random]] = [this.list[random], this.list[length]];
+    }
+  }
+  repeat() {
+
+  }*/
+  play() {
+
+  }
+  add(id) {
+    Video.getVideoFromYoutube(id).then((video) => {
+      if (!video.isLive) {
+        this.list.push(video);
+      } else {
+        alert('這個4直播捏, 加入失敗');
+        return false;
+      }
+    })
+  }
+  delete(index) {
+    this.list.splice(index, 1);
+  }
+  next() {}
+  prev() {}
+}
