@@ -3,7 +3,7 @@ function showPlayer() {
   player.style.display = 'block';
 }
 
-function hiddenPlayer() {
+function hidePlayer() {
   let player = document.getElementById('player');
   player.style.display = 'none';
 }
@@ -27,8 +27,8 @@ function loadPlayer() {
 function onYouTubeIframeAPIReady() {
   console.log('Hello');
   Video.player = new YT.Player('player', {
-    height: '390',
-    width: '640',
+    height: '200',
+    width: '300',
     events: {
       'onReady': function() {
         isPlayerReady = true;
@@ -127,8 +127,8 @@ class PlayList {
     this.description = description;
     this.publishedAt = new Date(Date.now());
     this.list = [];
-    this.shuffle = false;
-    this.repeat = REPEAT.NONE;
+    //this.nowPlaying = this.list[0];
+    this.init();
   }
   /*shuffle() {
     let length = this.list.length;
@@ -141,22 +141,50 @@ class PlayList {
   repeat() {
 
   }*/
+  init() {
+    this.shuffle = false;
+    this.repeat = REPEAT.NONE;
+    for (let i = 0; i < this.list.length; i++) {
+      if (i == 0) {
+        this.list[i].prev = null;
+      } else {
+        this.list[i].prev = this.list[i - 1];
+      }
+      if (i == this.list.length - 1) {
+        this.list[i].next = null;
+      } else {
+        this.list[i].next = this.list[i + 1];
+      }
+    }
+  }
   play() {
-
+    if (this.list.length == 0) {
+      //to do: try to play when this.list = empty;
+      return;
+    }
+    this.nowPlaying = this.list[0];
+    this.list[0].video.play();
   }
   add(id) {
     Video.getVideoFromYoutube(id).then((video) => {
       if (!video.isLive) {
-        this.list.push(video);
+        let listItem = {
+          video: video,
+        }
+        this.list.push(listItem);
       } else {
         alert('這個4直播捏, 加入失敗');
-        return false;
+        //return false;
       }
     })
   }
   delete(index) {
-    this.list.splice(index, 1);
+    let deleteItem = this.list.splice(index, 1);
+    deleteItem.prev.next = deleteItem.next;
+    deleteItem.next.prev = deleteItem.prev;
   }
-  next() {}
-  prev() {}
+  refreshOrder() {
+
+  }
+
 }
