@@ -130,20 +130,27 @@ class PlayList {
     //this.nowPlaying = this.list[0];
     this.init();
   }
-  /*shuffle() {
-    let length = this.list.length;
+  shuffle(index = -1) {
+    let order = [];
+    for (let i = 0; i < this.list.length; i++) {
+      order.push(i);
+    }
+    let length = order.length;
     let random;
     while (length) {
       random = Math.floor(Math.random() * length--);
-      [this.list[length], this.list[random]] = [this.list[random], this.list[length]];
+      [order[length], order[random]] = [order[random], order[length]];
+    }
+    if (index != -1) {
+      let translate = index - order[0] + order.length;
+      for (let i = 0; i < order.length; i++) {
+        order[i] = (order[i] + translate) % order.length;
+      }
     }
   }
-  repeat() {
-
-  }*/
   init() {
-    this.shuffle = false;
-    this.repeat = REPEAT.NONE;
+    this.shuffleMode = false;
+    this.repeatMode = REPEAT.NONE;
     for (let i = 0; i < this.list.length; i++) {
       if (i == 0) {
         this.list[i].prev = null;
