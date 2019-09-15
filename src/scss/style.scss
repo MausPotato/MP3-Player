@@ -18,6 +18,7 @@ $lightgreen: #66BAB7;
 
 @mixin mask {
   mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat; 
   overflow: hidden;
   text-indent: 200%;
   white-space: nowrap;  
@@ -41,9 +42,11 @@ $lightgreen: #66BAB7;
 }
 .pbtn {
   mask-image: url(../img/plus-solid.svg);
+  -webkit-mask-image: url(../img/plus-solid.svg);
 }
 .mbtn {
   mask-image: url(../img/minus-solid.svg);
+  -webkit-mask-image: url(../img/minus-solid.svg);
 }
 
 *:focus {
@@ -245,6 +248,7 @@ $lightgreen: #66BAB7;
     @include btn(0, 2.5vh, #FFF, $darkgreen);
     button {
       mask-image: url(../img/search.svg);
+      -webkit-mask-image: url(../img/search.svg);
       transition: background-color .2s .8s;
       filter: drop-shadow(.3vh .3vh .2vh black);
     }
@@ -328,6 +332,7 @@ $lightgreen: #66BAB7;
       justify-content: center;
       p {
         mask-image: url(../img/play-solid.svg);
+        -webkit-mask-image: url(../img/play-solid.svg);
         @include mask;
         background-color: #FFF;
         width: 3.3vh;
@@ -479,20 +484,25 @@ $lightgreen: #66BAB7;
 
   #random {
     mask-image: url(../img/random.svg);
+    -webkit-mask-image: url(../img/random.svg);
   }
   #last {
     mask-image: url(../img/step-backward-solid.svg);
+    -webkit-mask-image: url(../img/step-backward-solid.svg);
   }
   #play {
     mask-image: url(../img/play-circle-regular.svg);
+    -webkit-mask-image: url(../img/play-circle-regular.svg);
     width: 5.5vh;
     height: 5.5vh;
   }
   #next {
     mask-image: url(../img/step-forward-solid.svg);
+    -webkit-mask-image: url(../img/step-forward-solid.svg);
   }
   #repeat {
     mask-image: url(../img/repeat.svg);
+    -webkit-mask-image: url(../img/repeat.svg);
   }
 }
 .volume {
@@ -503,6 +513,7 @@ $lightgreen: #66BAB7;
   padding: 0 10%;
   #volume {
     mask-image: url(../img/volume-up-solid.svg);
+    -webkit-mask-image: url(../img/volume-up-solid.svg);
   }
   input {
     margin: 0 2%;

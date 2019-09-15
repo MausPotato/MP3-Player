@@ -1,2 +1,6 @@
 # ignore config.js
-js/config.js
+src/js/config.js
+
+node_modules/
+
+dist/

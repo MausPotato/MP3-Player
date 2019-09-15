@@ -147,6 +147,18 @@ class PlayList {
         order[i] = (order[i] + translate) % order.length;
       }
     }
+    for (let i = 0; i < order.length; i++) {
+      if (i == 0) {
+        this.list[order[i]].prev = null;
+      } else {
+        this.list[order[i]].prev = this.list[order[i - 1]];
+      }
+      if (i == order.length - 1) {
+        this.list[order[i]].next = null;
+      } else {
+        this.list[order[i]].next = this.list[order[i + 1]];
+      }
+    }
   }
   init() {
     this.shuffleMode = false;
