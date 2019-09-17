@@ -45,24 +45,6 @@ loadPlayer();
 }*/
 
 /*
-<li><span>Jesscia</span><button class="mbtn">minus</button></li>
-<li><span>YouTube Music</span><button class="mbtn">minus</button></li>
-<li><span>November</span><button class="mbtn">minus</button></li>
-<li><span>Space Hunter</span><button class="mbtn">minus</button></li>
-<li><span>The Path Starts Here</span><button class="mbtn">minus</button></li>
-<li><span>If I Had a Chicken</span><button class="mbtn">minus</button></li>
-<li><span>They Might Not</span><button class="mbtn">minus</button></li>
-<li><span>There's Life Out</span><button class="mbtn">minus</button></li>
-<li><span>prightly Pursuit</span><button class="mbtn">minus</button></li>
-<li><span>Jesscia</span><button class="mbtn">minus</button></li>
-<li><span>YouTube Music</span><button class="mbtn">minus</button></li>
-<li><span>November</span><button class="mbtn">minus</button></li>
-<li><span>Space Hunter</span><button class="mbtn">minus</button></li>
-<li><span>The Path Starts Here</span><button class="mbtn">minus</button></li>
-<li><span>If I Had a Chicken</span><button class="mbtn">minus</button></li>
-<li><span>They Might Not</span><button class="mbtn">minus</button></li>
-<li><span>There's Life Out</span><button class="mbtn">minus</button></li>
-<li><span>prightly Pursuit</span><button class="mbtn">minus</button></li>
 */
 
 class Video {
@@ -176,13 +158,16 @@ class PlayList {
       }
     }
   }
-  play() {
+  play(index = 0) {
     if (this.list.length == 0) {
       //to do: try to play when this.list = empty;
       return;
     }
-    this.nowPlaying = this.list[0];
-    this.list[0].video.play();
+    if (index >= this.list.length) {
+      return;
+    }
+    this.nowPlaying = this.list[index];
+    this.list[index].video.play();
   }
   add(id) {
     Video.getVideoFromYoutube(id).then((video) => {
@@ -202,8 +187,39 @@ class PlayList {
     deleteItem.prev.next = deleteItem.next;
     deleteItem.next.prev = deleteItem.prev;
   }
-  refreshOrder() {
+}
+
+class Player {
+  constructor() {
+    this.top50 = new PlayList('Top50', 'Top50 musics from Youtube trending');
+    this.searchlist = new PlayList('Search Results', 'result');
+    this.playLists = [];
+  }
+  add(title, description) {
+    let playList = new PlayList(title, description);
+    this.playLists.push(playList);
+  }
+  delete(index) {
+    this.playLists.splice(index, 1);
+  }
+  search(str) {
+    if (!isGpiReady) {
+      console.error('Gpi is not ready. Please try again later.');
+    }
+    return gapi.client.init({
+        'apiKey': CONFIG.APIKEY,
+        'discoveryDocs': ['https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest'],
+      }).then(function() {
+        return gapi.client.youtube.videos.list({
+          part: 'contentDetails,snippet',
+          id: id,
+        });
+      }).then(
+          response => {
+            return new Video(response);
+          },
+          reason => console.log('E', reason)
+    );
 
   }
-
 }
