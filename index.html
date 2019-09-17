@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>MP3-Player</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <script src="https://apis.google.com/js/api.js"></script>
+<link href="./style.css" rel="stylesheet"></head>
+<body>
+  <div class="wrap">
+    <div id="player"></div>
+    <div class="aside">
+      <div class="addalbum">
+        <h3>播放清單</h3><button class="pbtn">plus</button>
+      </div>
+      <div class="albumlist">
+        <ul>
+          <li><span>Jesscia</span><button class="mbtn">minus</button></li>
+          <li><span>YouTube Music</span><button class="mbtn">minus</button></li>
+          <li><span>November</span><button class="mbtn">minus</button></li>
+          <li><span>Space Hunter</span><button class="mbtn">minus</button></li>
+          <li><span>The Path Starts Here</span><button class="mbtn">minus</button></li>
+          <li><span>If I Had a Chicken</span><button class="mbtn">minus</button></li>
+          <li><span>They Might Not</span><button class="mbtn">minus</button></li>
+          <li><span>There's Life Out</span><button class="mbtn">minus</button></li>
+          <li><span>prightly Pursuit</span><button class="mbtn">minus</button></li>
+          <li><span>Jesscia</span><button class="mbtn">minus</button></li>
+          <li><span>YouTube Music</span><button class="mbtn">minus</button></li>
+          <li><span>November</span><button class="mbtn">minus</button></li>
+          <li><span>Space Hunter</span><button class="mbtn">minus</button></li>
+          <li><span>The Path Starts Here</span><button class="mbtn">minus</button></li>
+          <li><span>If I Had a Chicken</span><button class="mbtn">minus</button></li>
+          <li><span>They Might Not</span><button class="mbtn">minus</button></li>
+          <li><span>There's Life Out</span><button class="mbtn">minus</button></li>
+          <li><span>prightly Pursuit</span><button class="mbtn">minus</button></li>
+        </ul>
+      </div>
+      <div class="currentinfo">
+        <div class="darkenbg"></div>
+        <div class="currentalbum">
+          <h3>現在播放</h3>
+          <p>Youtube Music</p>
+        </div>
+        <h2>ウォルピスカーター 『泥中に咲く』</h2>
+      </div>
+    </div>
+    <div class="playerinfo">
+      <div id="coverbg">
+        <div class="darkenbg"></div>
+      </div>
+      <div class="topmenu">
+        <form id="search">
+          <input type="text" name="text" placeholder="請輸入關鍵字">
+          <button>search</button>
+        </form>
+        <button id="menu">MENU</button>
+      </div>
+      <div class="albumdetail">
+        <div class="albumcover">
+          <img src="https://c-sf.smule.com/sf/s94/arr/f2/44/3042f50c-93d8-4553-b69d-acd60d416908_512.jpg">
+        </div>
+        <div class="albumtitle">
+          <h1>Youtube Music</h1>
+          <div class="describe">
+            <p>Youtube 頻道</p>
+            <p>於 2019.7.22 創建</p>
+          </div>
+        </div>
+        <div class="albumbutton">
+          <button class="addtomyalbum">+ 新增至我的專輯</button>
+          <button class="playmusic"><p>play</p></button>
+        </div>
+      </div>
+      <div class="tunemenu">
+        <table>
+          <tr class="odd">
+            <td class="num">1</td>
+            <td class="title"><span>ウォルピスカーター 『泥中に咲く』</span></td>
+            <td class="time">4:50</td>
+            <td class="pnm"><button class="pbtn">plus</button><button class="mbtn">minus</button></td>
+          </tr>
+          <tr>
+            <td class="num">2</td>
+            <td class="title"><span>【HD】Fate/stay night [Heaven's Feel] II.Lost Butterfly - Aimer - I beg you【中日字幕】</span></td>
+            <td class="time">4:27</td>
+            <td class="pnm"><button class="pbtn">plus</button><button class="mbtn">minus</button></td>
+          </tr>
+          <tr class="odd">
+            <td class="num">3</td>
+            <td class="title"><span>打首獄門同好会「布団の中から出たくない」</span></td>
+            <td class="time">4:11</td>
+            <td class="pnm"><button class="pbtn">plus</button><button class="mbtn">minus</button></td>
+          </tr>
+          <tr>
+            <td class="num">4</td>
+            <td class="title"><span>【呦貓X祈Inory】Ikenai BORDERLINE『Macross Delta』</span></td>
+            <td class="time">4:37</td>
+            <td class="pnm"><button class="pbtn">plus</button><button class="mbtn">minus</button></td>
+          </tr>
+          <tr class="odd">
+            <td class="num">5</td>
+            <td class="title"><span>雞攻擊之術 // 歌曲航程 // 日本</span></td>
+            <td class="time">3:57</td>
+            <td class="pnm"><button class="pbtn">plus</button><button class="mbtn">minus</button></td>
+          </tr>
+          <tr>
+            <td class="num">6</td>
+            <td class="title"><span>スパークル [original ver.] -Your name. Music Video edition- 予告編 from new album「人間開花」初回盤DVD</span></td>
+            <td class="time">3:01</td>
+            <td class="pnm"><button class="pbtn">plus</button><button class="mbtn">minus</button></td>
+          </tr>
+          <tr class="odd">
+            <td class="num">7</td>
+            <td class="title"><span>AMV 死亡遊行 デス・パレード Music: Noisy Cell - Last Theater 中/英歌詞</span></td>
+            <td class="time">6:03</td>
+            <td class="pnm"><button class="pbtn">plus</button><button class="mbtn">minus</button></td>
+          </tr>
+        </table>
+      </div>
+      <div class="playerbar">
+        <div class="tunebar">
+          <input type="range" name="" min="" max="" step="" value="0">
+        </div>
+        <div class="barbutton">
+          <button id="random" class="btn">random</button>
+          <button id="last" class="btn">step-backward</button>
+          <button id="play" class="btn">play</button>
+          <button id="next" class="btn">step-forward</button>
+          <button id="repeat" class="btn">repeat</button>
+        </div>
+        <div class="volume">
+          <button id="volume" class="btn">volume</button>
+          <input type="range" name="" min="0" max="100" step="1" value="50">
+        </div>
+      </div>
+    </div>  
+  </div>
+<script type="text/javascript" src="bundle.js"></script></body>
+</html>
